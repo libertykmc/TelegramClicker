@@ -9,13 +9,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted } from "vue";
+import { defineComponent, ref, onMounted, watch } from "vue";
 import { tg, initTelegram } from "./telegram";
 
 export default defineComponent({
   name: "App",
   setup() {
-    const count = ref(0);
+    const count = ref<number>(parseInt(localStorage.getItem("count") || "0"));
     const isTelegram = ref(!!tg);
 
     const increment = () => {
@@ -32,6 +32,10 @@ export default defineComponent({
         tg.MainButton.text = "Start Clicking!";
         tg.MainButton.show();
       }
+    });
+
+    watch(count, (newCount) => {
+      localStorage.setItem("count", newCount.toString());
     });
 
     return { count, increment, closeApp, isTelegram };
