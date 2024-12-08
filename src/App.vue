@@ -4,6 +4,10 @@
     <h1>Эй мужик, руби бабло!</h1>
     <p>Бабос: {{ count }}</p>
     <button @click="increment">Зарабатывать!</button>
+    <nav class="app__nav">
+      <a class="app__link" href="\">Home</a>
+      <a class="app__link" href="#">About</a>
+    </nav>
     <button v-if="isTelegram" @click="closeApp">Close App</button>
   </div>
 </template>
@@ -55,5 +59,16 @@ button {
 }
 .photo {
   width: 200px;
+}
+
+.app__nav {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+.app__link {
+  text-decoration: none;
+  color: inherit;
+  font-size: 20px;
 }
 </style>
