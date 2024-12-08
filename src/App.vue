@@ -1,8 +1,9 @@
 <template>
   <div class="app">
-    <h1>Привет ишак</h1>
-    <p>Clicks: {{ count }}</p>
-    <button @click="increment">Click Me!</button>
+    <img src="./assets/photos//chill.jpg" alt="" class="photo" />
+    <h1>Эй мужик, руби бабло!</h1>
+    <p>Бабос: {{ count }}</p>
+    <button @click="increment">Зарабатывать!</button>
     <button v-if="isTelegram" @click="closeApp">Close App</button>
   </div>
 </template>
@@ -47,5 +48,8 @@ button {
   padding: 10px 20px;
   font-size: 16px;
   margin: 10px;
+}
+.photo {
+  width: 200px;
 }
 </style>
