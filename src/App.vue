@@ -6,8 +6,10 @@
     <button @click="increment">Зарабатывать!</button>
     <nav class="app__nav">
       <a class="app__link" href="\">Home</a>
-      <a class="app__link" href="#">About</a>
+      <RouterLink class="app__link" to="/about">About</RouterLink>
     </nav>
+    <main><RouterView /></main>
+
     <button v-if="isTelegram" @click="closeApp">Close App</button>
   </div>
 </template>
@@ -15,6 +17,7 @@
 <script lang="ts">
 import { defineComponent, ref, onMounted, watch } from "vue";
 import { tg, initTelegram } from "./telegram";
+import { useRouter } from "vue-router";
 
 export default defineComponent({
   name: "App",
