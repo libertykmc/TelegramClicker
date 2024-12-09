@@ -1,29 +1,25 @@
 <template>
   <div class="app">
-    <img src="./assets/photos//chill.jpg" alt="" class="photo" />
-    <h1>Эй мужик, руби бабло!</h1>
-    <p>Бабос: {{ count }}</p>
-    <button @click="increment">Зарабатывать!</button>
+    <main><RouterView /></main>
     <nav class="app__nav">
-      <a class="app__link" href="\">Home</a>
+      <RouterLink class="app__link" to="/">Home</RouterLink>   
       <RouterLink class="app__link" to="/about">About</RouterLink>
     </nav>
-    <main><RouterView /></main>
+    
 
     <button v-if="isTelegram" @click="closeApp">Close App</button>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref, onMounted, watch } from "vue";
-import { tg, initTelegram } from "./telegram";
-import { useRouter } from "vue-router";
 
-export default defineComponent({
-  name: "App",
-  setup() {
-    const count = ref<number>(parseInt(localStorage.getItem("count") || "0"));
-    const isTelegram = ref(!!tg);
+
+
+
+<script setup lang="ts">
+import { ref, onMounted, watch } from "vue";
+import { tg, initTelegram } from "./telegram";
+const count = ref<number>(parseInt(localStorage.getItem("count") || "0"));
+  const isTelegram = ref(!!tg);
 
     const increment = () => {
       count.value++;
@@ -45,10 +41,7 @@ export default defineComponent({
       localStorage.setItem("count", newCount.toString());
     });
 
-    return { count, increment, closeApp, isTelegram };
-  },
-});
-</script>
+    </script>
 
 <style>
 .app {
