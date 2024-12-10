@@ -2,13 +2,27 @@
 
 <template>
   <div class="about">
-    <img class="photo" src="/lox.jpg" />
+    <h1>Наши разработчики</h1>
+    <div class="photos">
+      <img src="/razrab3.jpg" alt="" class="photo" />
+      <img src="/razrab1.jpg" alt="" class="photo" />
+      <img src="/razrab2.1.png" alt="" class="photo" />
+    </div>
+    <h1>Опущенный</h1>
+    <img class="photo" src="/popusk.jpg" />
   </div>
 </template>
 
 <style scoped>
-.app {
-  text-align: center;
-  margin-top: 20vh;
+.photos {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.photo {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
 }
 </style>

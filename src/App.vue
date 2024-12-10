@@ -2,46 +2,41 @@
   <div class="app">
     <main><RouterView /></main>
     <nav class="app__nav">
-      <RouterLink class="app__link" to="/">Home</RouterLink>   
+      <RouterLink class="app__link" to="/">Home</RouterLink>
       <RouterLink class="app__link" to="/about">About</RouterLink>
+      <RouterLink class="app__link" to="/bonus">Bonus</RouterLink>
     </nav>
-    
 
     <button v-if="isTelegram" @click="closeApp">Close App</button>
   </div>
 </template>
 
-
-
-
-
 <script setup lang="ts">
 import { ref, onMounted, watch } from "vue";
 import { tg, initTelegram } from "./telegram";
 const count = ref<number>(parseInt(localStorage.getItem("count") || "0"));
-  const isTelegram = ref(!!tg);
+const isTelegram = ref(!!tg);
 
-    const increment = () => {
-      count.value++;
-    };
+const increment = () => {
+  count.value++;
+};
 
-    const closeApp = () => {
-      if (tg) tg.close();
-    };
+const closeApp = () => {
+  if (tg) tg.close();
+};
 
-    onMounted(() => {
-      initTelegram();
-      if (tg) {
-        tg.MainButton.text = "Start Clicking!";
-        tg.MainButton.show();
-      }
-    });
+onMounted(() => {
+  initTelegram();
+  if (tg) {
+    tg.MainButton.text = "Start Clicking!";
+    tg.MainButton.show();
+  }
+});
 
-    watch(count, (newCount) => {
-      localStorage.setItem("count", newCount.toString());
-    });
-
-    </script>
+watch(count, (newCount) => {
+  localStorage.setItem("count", newCount.toString());
+});
+</script>
 
 <style>
 .app {
