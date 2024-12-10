@@ -4,7 +4,6 @@
     <nav class="app__nav">
       <RouterLink class="app__link" to="/">Home</RouterLink>
       <RouterLink class="app__link" to="/about">About</RouterLink>
-      <RouterLink class="app__link" to="/bonus">Bonus</RouterLink>
     </nav>
 
     <button v-if="isTelegram" @click="closeApp">Close App</button>

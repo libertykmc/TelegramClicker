@@ -2,12 +2,7 @@
 
 <template>
   <div class="about">
-    <h1>Наши разработчики</h1>
-    <div class="photos">
-      <img src="/razrab3.jpg" alt="" class="photo" />
-      <img src="/razrab1.jpg" alt="" class="photo" />
-      <img src="/razrab2.1.png" alt="" class="photo" />
-    </div>
+    <h1>About page</h1>
   </div>
 </template>
 
@@ -23,7 +18,7 @@
 }
 
 .photo {
-  width: 100px;
+  width: 200px;
   height: 200px;
   object-fit: contain;
 }
