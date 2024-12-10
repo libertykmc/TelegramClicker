@@ -1,12 +1,42 @@
 <template>
   <div class="app">
-    <img src="/icon.png" alt="" class="photo" />
     <h1>Эй мужик, руби бабло!</h1>
-    <p>Бабос: {{ count }}</p>
-    <button @click="increment">Зарабатывать!</button>
+    <button @click="increment"><img src="/icon.png" class="photo" /></button>
+    <p class="text">Бабос: {{ count }}</p>
   </div>
 </template>
 
+<style>
+.app {
+  text-align: center;
+  margin-top: 20vh;
+}
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 10px;
+}
+.photo {
+  width: 200px;
+}
+
+.app__nav {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+.app__link {
+  text-decoration: none;
+  color: inherit;
+  font-size: 20px;
+}
+
+.text {
+  font-size: 24px;
+  color: #fff;
+  font-weight: 700;
+}
+</style>
 <script setup lang="ts">
 import { ref, onMounted, watch } from "vue";
 import { tg, initTelegram } from "../telegram";
@@ -33,29 +63,3 @@ watch(count, (newCount) => {
   localStorage.setItem("count", newCount.toString());
 });
 </script>
-
-<style>
-.app {
-  text-align: center;
-  margin-top: 20vh;
-}
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  margin: 10px;
-}
-.photo {
-  width: 200px;
-}
-
-.app__nav {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-}
-.app__link {
-  text-decoration: none;
-  color: inherit;
-  font-size: 20px;
-}
-</style>
