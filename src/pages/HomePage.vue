@@ -7,38 +7,30 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref, onMounted, watch } from "vue";
+<script setup lang="ts">
+import { ref, onMounted, watch } from "vue";
 import { tg, initTelegram } from "../telegram";
+const count = ref<number>(parseInt(localStorage.getItem("count") || "0"));
+const isTelegram = ref(!!tg);
 
-export default defineComponent({
-  name: "App",
-  setup() {
-    const count = ref<number>(parseInt(localStorage.getItem("count") || "0"));
-    const isTelegram = ref(!!tg);
+const increment = () => {
+  count.value++;
+};
 
-    const increment = () => {
-      count.value++;
-    };
+const closeApp = () => {
+  if (tg) tg.close();
+};
 
-    const closeApp = () => {
-      if (tg) tg.close();
-    };
+onMounted(() => {
+  initTelegram();
+  if (tg) {
+    tg.MainButton.text = "Start Clicking!";
+    tg.MainButton.show();
+  }
+});
 
-    onMounted(() => {
-      initTelegram();
-      if (tg) {
-        tg.MainButton.text = "Start Clicking!";
-        tg.MainButton.show();
-      }
-    });
-
-    watch(count, (newCount) => {
-      localStorage.setItem("count", newCount.toString());
-    });
-
-    return { count, increment, closeApp, isTelegram };
-  },
+watch(count, (newCount) => {
+  localStorage.setItem("count", newCount.toString());
 });
 </script>
 
