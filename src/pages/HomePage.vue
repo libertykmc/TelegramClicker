@@ -1,8 +1,8 @@
 <template>
   <div class="app">
-    <h1>Эй мужик, руби бабло!</h1>
+    <h1>Зарабатывайте и развивайтесь!</h1>
     <button @click="increment"><img src="/icon.png" class="photo" /></button>
-    <p class="text">Бабос: {{ count }}</p>
+    <p class="text">На счету: {{ count }}$</p>
   </div>
 </template>
 
@@ -33,7 +33,6 @@ button {
 
 .text {
   font-size: 24px;
-  color: red;
   font-weight: 700;
 }
 </style>
