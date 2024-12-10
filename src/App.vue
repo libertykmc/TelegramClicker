@@ -42,6 +42,7 @@ watch(count, (newCount) => {
 .app {
   text-align: center;
   margin-top: 20vh;
+  max-width: 480px;
 }
 button {
   padding: 10px 20px;

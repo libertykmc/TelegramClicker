@@ -14,6 +14,10 @@
 </template>
 
 <style scoped>
+.about {
+  max-width: 480px;
+}
+
 .photos {
   display: flex;
   gap: 20px;
@@ -21,8 +25,8 @@
 }
 
 .photo {
-  width: 200px;
+  width: 100px;
   height: 200px;
-  object-fit: cover;
+  object-fit: contain;
 }
 </style>

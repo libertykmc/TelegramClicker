@@ -33,7 +33,7 @@ button {
 
 .text {
   font-size: 24px;
-  color: #fff;
+  color: red;
   font-weight: 700;
 }
 </style>
