@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <h1>Зарабатывайте и развивайтесь!</h1>
+    <h1 class="text">Зарабатывайте и развивайтесь!</h1>
     <button @click="increment"><img src="/icon.png" class="photo" /></button>
     <p class="text">На счету: {{ count }}$</p>
   </div>
@@ -14,7 +14,6 @@
 button {
   padding: 10px 20px;
   font-size: 16px;
-  margin: 10px;
 }
 .photo {
   width: 200px;
@@ -32,7 +31,7 @@ button {
 }
 
 .text {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
 }
 </style>
